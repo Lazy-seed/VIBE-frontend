@@ -8,15 +8,15 @@ import pause_img from './img/pause.png'
 import next_img from './img/next.png'
 import back_img from './img/back.png'
 
-import {Base_URL} from '../../config/URL'
+import { Base_URL } from '../../config/URL'
 
 import axios from 'axios';
 
 // import songList from '../../pages/songlist/songs/songsList';
 
 export default function Player({ songPlaying_ID }) {
-    
-    
+
+
     useEffect(() => {
         if (songPlaying_ID) {
             axios.get(`${Base_URL}/api/getOneSong/${songPlaying_ID}`, { withCredentials: true }).then((response) => {
@@ -56,7 +56,7 @@ export default function Player({ songPlaying_ID }) {
     return (
         <div className="player">
             <div className="left">
-                <img className="albumLogo" src={songData.img} alt=""/>
+                <img className="albumLogo" src={songData.img} alt="" />
 
                 <div className="songInfo">
                     {/* <h4>{songList[songNumber].name}</h4> */}
@@ -85,14 +85,7 @@ export default function Player({ songPlaying_ID }) {
             </div>
 
             <div className="right">
-                <Grid container spacing={2}>
-                    <Grid item>
-                        <VolumeDownIcon />
-                    </Grid>
-                    <Grid item xs>
-                        <Slider id='slider' />
-                    </Grid>
-                </Grid>
+                    <input type="range" id='volume_slider'/>
             </div>
         </div>
     )
@@ -108,11 +101,18 @@ export default function Player({ songPlaying_ID }) {
         audio.src = url;
         audio.play()
         setsongIsPlaying(true)
-        
-        setTimeout(() => {  seekBar.max = audio.duration;
+
+        setTimeout(() => {
+            seekBar.max = audio.duration;
             console.log(seekBar.max);
-            song_duration.innerHTML = formatTime(audio.duration); }, 2000);
-        
+            song_duration.innerHTML = formatTime(audio.duration);
+        }, 2000);
+        setTimeout(() => {
+            seekBar.max = audio.duration;
+            console.log(seekBar.max);
+            song_duration.innerHTML = formatTime(audio.duration);
+        }, 5000);
+
     }
 
     // play pause
@@ -125,7 +125,7 @@ export default function Player({ songPlaying_ID }) {
         } else {
             audio.pause()
         }
-        
+
         setsongIsPlaying(!songIsPlaying)
 
         seekBar.max = audio.duration;
@@ -137,7 +137,7 @@ export default function Player({ songPlaying_ID }) {
         var audio = document.querySelector('#audio')
         const seekBar = document.querySelector(".seek-bar");
         audio.currentTime = seekBar.value;
-        
+
     }
 
 

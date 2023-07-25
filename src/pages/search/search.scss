@@ -1,0 +1,114 @@
+.srch_conatiner {
+    width: 80%;
+    margin: auto;
+
+
+
+    .srch_input_cont {
+        margin: auto;
+        margin-top: 70px;
+        width: 300px;
+
+
+        .search_box {
+            display: inline-block;
+            position: relative;
+
+            input[type="text"] {
+                width: 300px;
+                padding: 10px;
+                border: none;
+                border-radius: 20px;
+                box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+                outline: none;
+                background: #eae7e7;
+                font-size: 15px;
+                font-weight: 500;
+            }
+
+            button[type="submit"] {
+                background-color: #4e99e9;
+                border: none;
+                color: #fff;
+                cursor: pointer;
+                padding: 10px 20px;
+                border-radius: 20px;
+                box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+                position: absolute;
+                top: 0;
+                right: 0;
+                transition: .9s ease;
+                font-size: 15px;
+
+
+                &:hover {
+                    transform: scale(1.1);
+                    color: rgb(0, 0, 0);
+                    background-color: rgb(4, 255, 0);
+                }
+            }
+        }
+
+    }
+
+
+
+
+    .songList {
+        padding: 0;
+
+        li {
+            list-style-type: none;
+            width: 100%;
+            padding: 0.8rem;
+            display: flex;
+            align-items: center;
+            transition: background 0.2s ease-in-out;
+
+            &:hover {
+                background: rgba(255, 255, 255, 0.1);
+
+                .songIcon {
+                    .noteI {
+                        display: none;
+                    }
+
+                    .playI {
+                        display: block;
+                    }
+                }
+            }
+
+            .songDetails {
+                h3 {
+                    margin: 0;
+                    font-weight: 300;
+                    font-size: 1rem;
+                }
+
+                span {
+                    color: rgba(255, 255, 255, 0.7);
+                    font-size: 0.9rem;
+                }
+            }
+
+            .songTime {
+                margin-left: auto;
+            }
+
+            .songIcon {
+                padding-right: 1rem;
+
+                .playI {
+                    display: none;
+                }
+
+                svg {
+                    fill: rgba(255, 255, 255, 0.7);
+                    width: 15px;
+                    height: 15px;
+                }
+            }
+        }
+    }
+}

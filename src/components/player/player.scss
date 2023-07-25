@@ -93,12 +93,20 @@
 
     @include tab {
         display: none;
-
     }
 
+    #volume_slider {
+        display: none;
+        width: 50%;
+        -webkit-appearance: none;
+        height: 5px;
+        background: rgb(215, 215, 215);
 
-    #slider {
-        width: 200px;
+        &::-webkit-slider-thumb {
+            // width: 1px;
+            // height: 10px;
+            // box-shadow: -400px 0 0 400px #002a59;
+        }
     }
 }
 

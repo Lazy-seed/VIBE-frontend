@@ -7,6 +7,7 @@ import {Base_URL} from '../../config/URL'
 
 import './Songlist.scss'; 
 import axios from 'axios'
+import Loader from '../../components/loader/Loader'
 
 
 const Songlist = ({setsongPlaying_ID}) => {
@@ -22,7 +23,7 @@ const Songlist = ({setsongPlaying_ID}) => {
 
 const [songList, setsongList] = useState('')
   if (!songList) {
-    return "Song list loading..."
+    return <Loader/>
   }
 
   return (
