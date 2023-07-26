@@ -3,12 +3,13 @@ import './nav.scss'
 import { ReactComponent as HomeIcon } from '../../svgs/home.svg'
 import { ReactComponent as SearchIcon } from '../../svgs/search.svg'
 import { ReactComponent as LibraryIcon } from '../../svgs/library.svg'
+import { setMenu } from '../../store/slice/menu';
 import { Link } from 'react-router-dom'
-import {useSelector } from 'react-redux'
+import {useSelector,useDispatch } from 'react-redux'
 
 export default function Nav () {
-
   const showMenu = useSelector((state) => state.showMenuSlice.showMenu)
+  const dispatch=useDispatch();
   return (
     <div className={`navBar ${showMenu ===true ?'showMenu':''}`}>
       <div className="logo">
@@ -21,13 +22,13 @@ export default function Nav () {
         </svg>
       </div>
       <ul>
-        <Link to="/">
+        <Link to="/" onClick={()=>dispatch(setMenu(false))}>
           <li className="active">
             <HomeIcon />
             Home
           </li>
         </Link>
-        <Link to="/search">
+        <Link to="/search" onClick={()=>dispatch(setMenu(false))}>
           <li>
             <SearchIcon />
             Search
